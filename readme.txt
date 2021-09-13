@@ -1,1 +1,1 @@
-capstone project - Group 8
+COMMAND TO START: npm start
