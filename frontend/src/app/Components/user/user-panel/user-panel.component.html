@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Panel</title>
+</head>
+<body>
+    
+<div>
+    <h2 style="text-align:center;">User Panel</h2>
+    <br/>
+
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row row-cols-2">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Sign Up</h5>
+                        <p class="card-text">
+                            Sign up page for the first time user
+                        </p>
+                        <button (click)="signup()" class="btn btn-info">Sign Up</button>
+                    </div>
+                </div>
+    
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Sign In</h5>
+                        <p class="card-text">Sign in page for existing user</p>
+                        <button (click)="signin()" class="btn btn-info">Sign In</button>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Raise Ticket</h5>
+                        <p class="card-text">Raise ticket if your account got locked</p>
+                        <button (click)="raiseticket()" class="btn btn-info">Raise Ticket</button>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Back to main</h5>
+                        <p class="card-text">Go back to main page</p>
+                        <button (click)="back()" class="btn btn-info">Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

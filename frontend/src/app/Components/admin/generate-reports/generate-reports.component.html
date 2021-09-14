@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Reports</title>
+</head>
+<body>
+    
+<h2>To Generate Different Kinds of Reports</h2>
+<div class="d-grid gap-2 col-8 mx-auto">
+<input class="btn btn-primary" type="button" value="Daily Reports" (click)="dailyReports()"><br>
+
+<table class= "table table-dark">
+  <thead>
+    <tr>
+      
+      <th scope="col">_id</th>
+      <th scope="col">User Name</th>
+      <th scope="col">Total</th>
+      <th scope="col">Date</th>
+
+    </tr>
+  </thead>
+</table>
+
+<input class="btn btn-primary" type="button" value="Weekly Reports" (click)="weeklyReports()"><br>
+
+<table class= "table table-dark">
+  <thead>
+    <tr>
+      
+      <th scope="col">_id</th>
+      <th scope="col">User Name</th>
+      <th scope="col">Total</th>
+      <th scope="col">Date</th>
+
+    </tr>
+  </thead>
+</table>
+
+<input class="btn btn-primary" type="button" value="Monthly  Reports" (click)="monthlyReports()"><br>
+
+<table class= "table table-dark">
+  <thead>
+    <tr>
+      
+      <th scope="col">_id</th>
+      <th scope="col">User Name</th>
+      <th scope="col">Total</th>
+      <th scope="col">Date</th>
+
+    </tr>
+  </thead>
+</table>
+
+<input class="btn btn-primary" type="button" value="Product Reports" (click)="particularProductReports()"><br>
+
+<table class= "table table-dark">
+    <thead>
+      <tr>
+        
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        
+      </tr>
+    </thead>
+</table>
+
+<input class="btn btn-primary" type="button" value="Costumer Reports" (click)="particularCustomerReports()"><br>
+
+<table class= "table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">User ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Data of Birth</th>
+        <th scope="col">Address</th>
+        <th scope="col">Email Id</th>
+      </tr>
+    </thead>
+</table>
+</div>
+
+
+
+</body>
+</html>
