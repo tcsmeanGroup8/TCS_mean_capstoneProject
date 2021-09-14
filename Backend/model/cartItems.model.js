@@ -4,16 +4,17 @@ let mongoose = require("mongoose");
 //avoid s and lower case
 mongoose.pluralize(null);
 
-//create the schema
-let productSchema = mongoose.Schema({
-    
+let cartProductSchema = mongoose.Schema({
+    pid:String,
     name:String,
+    price:Number,
     quantity:Number,
-    price:Number
-});
+    userId:String,
+    imageId:Number
+})
 
 //using schema creating model
-let productModel = mongoose.model("Product",productSchema);
+let cartProductModel = mongoose.model("CartItems",cartProductSchema);
 
 //export here and import in another file using require
-module.exports = productModel;
+module.exports = cartProductModel;
