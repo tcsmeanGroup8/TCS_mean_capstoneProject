@@ -5,7 +5,7 @@ let mongoose = require("mongoose");
 mongoose.pluralize(null);
 
 let ticketSchema = mongoose.Schema({
-    _id:String,
+    userId:String,
     description:String
 })
 
