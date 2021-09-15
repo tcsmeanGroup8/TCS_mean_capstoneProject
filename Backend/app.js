@@ -17,7 +17,7 @@ let app = express();
 // add middleware 
 app.use(cors());
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.urlencoded({ extended: true }));
 
 //url database 
 let url = "mongodb+srv://sathwikakatam:Sathwika123@cluster0.xcudk.mongodb.net/TataStores?retryWrites=true&w=majority"
@@ -31,41 +31,13 @@ catch(error=>console.log(error));
 app.use("/api/admin", adminRouter);
 app.use("/api/user", userRouter);
 
-
-// middleware which help to match main path and pass the
-// request to router file. 
-// http://localhost:9090/api/product/getAllProducts     : Get 
-// http://localhost:9090/api/product/storeProduct       : Post 
-// http://localhost:9090/api/product/deleteProduct       : Delete 
-// http://localhost:9090/api/product/updateProduct       : Update 
-
-//app.use("/api/product",routerProduct);
-
-// http://localhost:9090/api/user/signUp        : post signup 
-// http://localhost:9090/api/user/signIn        : post signIn
-//app.use("/api/user",userRouter);
-
-// http://localhost:9090/funds/fetchFunds           : Get 
-// http://localhost:9090/funds/createFundsAccount   : Post 
-// http://localhost:9090/funds/deleteFundsAccount   : Delete 
-// http://localhost:9090/funds/addFunds             : Update 
-// http://localhost:9090/funds/subtractFunds        : Update
-app.use("/funds",routerFunds);
-
-// http://localhost:9090/status/fetchStatus         : Get 
-// http://localhost:9090/status/createStatus        : Post 
-// http://localhost:9090/status/deleteStatus        : Delete 
-// http://localhost:9090/status/updateStatus        : Update 
-app.use("/status",routerStatus);
-
-// http://localhost:9090/employee/loginEmployee     : Post 
-// http://localhost:9090/employee/changePassword    : Post 
-// http://localhost:9090/employee/panel             : Post 
-app.use("/employee",routerEmployee);
+app.use("/api/funds",routerFunds);
+app.use("/api/status",routerStatus);
+app.use("/api/employee",routerEmployee);
 
 /*app.get("/", (req, res) => {
     res.sendFile(__dirname + "/tempHTML/tempIndex.html");
-})*/
+})
 
 app.get("/funding", (req, res) => {
     res.sendFile(__dirname + "/tempHTML/funding.html");
@@ -77,6 +49,6 @@ app.get("/employees", (req, res) => {
 
 app.get("/orderStatus", (req, res) => {
     res.sendFile(__dirname + "/tempHTML/orderStatus.html");
-})
+})*/
 
 app.listen(9090,()=>console.log("Server running on port number 9090"))

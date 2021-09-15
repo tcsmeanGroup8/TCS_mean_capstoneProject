@@ -1,0 +1,11 @@
+<div>
+    <h2>Employee Change Password Page</h2>
+    <form [formGroup]="empLoginRef" (ngSubmit)="changeEmpPw()">
+        <label>New Password: </label>
+        <input type="text" formControlName="password"> <br/>
+        <label>Re-enter New Password: </label>
+        <input type="text" formControlName="password2"> <br/>
+        <button type="submit">Change Password</button>
+        {{msg}}
+    </form>
+</div>

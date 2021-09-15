@@ -1,0 +1,11 @@
+<div>
+    <h2>Employee Login Page</h2>
+    <form [formGroup]="empLoginRef" (ngSubmit)="checkEmp()">
+        <label>Email: </label>
+        <input type="text" formControlName="email"> <br/>
+        <label>Password: </label>
+        <input type="text" formControlName="password"> <br/>
+        <button type="submit">Login</button>
+        {{msg}}
+    </form>
+</div>
