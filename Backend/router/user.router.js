@@ -1,12 +1,8 @@
-let express= require("express");
-let router= express.Router();
-let UserController= require("../controller/user.controller.js");
+let express = require("express");
+let router = express.Router();
+let userController = require("../controller/user.controller");
 
-router.get("/displayAllItems", UserController.getAllItems);
-router.get("/retrieveUser/:usr", UserController.getUser);
-router.put("/updateFund", UserController.updateUserFund);
-router.put("/updateQuantity", UserController.updateItemQuant);
-router.post("/saveOrder", UserController.saveOrder);
+router.post("/signIn",userController.signIn);
+router.post("/signUp",userController.signUp);
 
-
-module.exports= router;
+module.exports=router;

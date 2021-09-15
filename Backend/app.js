@@ -8,7 +8,9 @@ let cors = require("cors");
 let routerFunds = require("./router/funds.router");
 let routerStatus = require("./router/status.router");
 let routerEmployee = require("./router/employee.router");
-
+//================= Routers =====================
+let adminRouter = require("./router/admin.router");
+let userRouter = require("./router/user.router");
 // create the reference of express 
 let app = express();
 
@@ -24,6 +26,11 @@ let url = "mongodb://localhost:27017/tcsmean"
 mongoose.connect(url).
 then(res=>console.log("connected")).
 catch(error=>console.log(error));
+
+
+app.use("/api/admin", adminRouter);
+app.use("/api/user", userRouter);
+
 
 // middleware which help to match main path and pass the
 // request to router file. 
