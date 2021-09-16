@@ -34,6 +34,19 @@ let deleteProductInfo = (request,response)=> {
     })
 }
 
+//getting all the products 
+let getAll = async (req, res, next) => {
+
+	const query = proModel.find({});
+
+	query.exec()
+		.then(doc => res.status(200).json(doc))
+		.catch(next)
+
+};
+
+
+
 //update product by id
 let updateProductDetails = (request,response)=> {
     let pid = request.body.pid;
@@ -71,4 +84,4 @@ let getProductDetails = (request,response)=>{
     })
 }
 
-module.exports = {addProductInfo,deleteProductInfo,updateProductDetails,selectProductById,getProductDetails}
+module.exports = {addProductInfo,deleteProductInfo,getAll,updateProductDetails,selectProductById,getProductDetails}

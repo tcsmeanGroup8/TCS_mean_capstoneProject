@@ -21,7 +21,8 @@ const routes: Routes = [
   {path:"employeeSignIn", component:EmployeeSignInComponent},
   {path:"empChangePassword/:employee", component:EmployeeChangePwComponent},
   {path:"employeePanel/:employee", component:EmployeePanelComponent},
-  {path:"adminPanel",loadChildren:()=>import('../admin/admin.module').then(m=>m.AdminModule)},
+  {path:"adminPanel", component:AdminPanelComponent},
+  //{path:"adminPanel",loadChildren:()=>import('../admin/admin.module').then(m=>m.AdminModule)},
   {path:"",redirectTo:"userSignIn",pathMatch:"prefix"}
 ];
 

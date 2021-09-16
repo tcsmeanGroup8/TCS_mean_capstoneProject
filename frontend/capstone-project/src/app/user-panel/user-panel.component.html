@@ -1,19 +1,21 @@
-<h2>Welcome {{userName}} to User Panel (Grocers) </h2>
+<h2>Welcome {{userName}} to User Panel  </h2>
+
 <a routerLink=""> Edit Profile</a> |
 <a routerLink=""> Manage Account</a> |
 <a routerLink=""> Order History</a> |
 <a routerLink=""> Raise Ticket</a> |
-<a routerLink="/userSignIn"> Log Out</a>
+<a routerLink="/userSignIn"> Log Out</a> &nbsp;
+
+    <form>
+        <input type="submit" value="Check Out" style="text-align: center; font-size: larger; color: crimson;">
+    </form>
+
+
 
 <div class="container">
     <div class="row">
-        <div class="col">
-            <label>Cart Size:</label><label id="size">0</label>
-        </div>
-        <div class="col">
-            <form>
-                <input type="submit" value="Check Out">
-            </form>
+        <div style="text-align: center; color: green; font-size: xx-large;" >
+            <label>Cart Size:</label><label id="size" style= " text-align: center; font-size:larger; color: crimson; ">0</label>
         </div>
     </div>
 </div>

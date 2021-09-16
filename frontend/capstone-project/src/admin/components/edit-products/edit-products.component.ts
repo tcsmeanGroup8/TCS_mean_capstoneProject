@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+// import { Component, OnInit } from '@angular/core';
 
-@Component({
-  selector: 'app-edit-products',
-  templateUrl: './edit-products.component.html',
-  styleUrls: ['./edit-products.component.css']
-})
-export class EditProductsComponent implements OnInit {
+// @Component({
+//   selector: 'app-edit-products',
+//   templateUrl: './edit-products.component.html',
+//   styleUrls: ['./edit-products.component.css']
+// })
+// export class EditProductsComponent implements OnInit {
 
-  constructor() { }
+//   constructor() { }
 
-  ngOnInit(): void {
-  }
+//   ngOnInit(): void {
+//   }
 
-}
+// }

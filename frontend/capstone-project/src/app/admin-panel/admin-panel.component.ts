@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { EmployeeService } from '../services/employee.service';
+import { ReportService } from '../services/report.service';
+
 
 @Component({
   selector: 'app-admin-panel',
@@ -6,10 +10,53 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-panel.component.css']
 })
 export class AdminPanelComponent implements OnInit {
+  // form reference for adding the Employee
+  employeeRef = new FormGroup({
+    fname: new FormControl(),
+    lname: new FormControl(),
+    emailid: new FormControl('', Validators.required),
+    password: new FormControl({value:'123', disabled:true})
+  })
 
-  constructor() { }
+  // form reference for deleting the Employee
+  employeeDeleteRef = new FormGroup({
+    emailid:new FormControl('', Validators.required)
+  })
+
+  // form reference for generating the report
+  reportForm = new FormGroup({
+    type: new FormControl(),
+    date: new FormControl(),
+    pName: new FormControl(),
+    cEmail: new FormControl()
+  })
+
+  //display the message
+  addMsg?:string;
+  deleteMsg?:string;
+
+  reportType?:string;
+  reports: any;
+  reportGenerated:boolean = false;
+  reportEmpty:boolean = false;
+
+  constructor(public empSer:EmployeeService, public reportSer:ReportService) { }
 
   ngOnInit(): void {
   }
-
+  
+  // generate report
+  generateReport(){
+    let report = this.reportForm.value;
+    this.reportSer.getSpecificReport(report)
+    .subscribe(result=> {
+      console.log(result);
+      this.reports = result;
+      this.reportGenerated = true;
+      if(this.reports.length == 0){
+        this.reportEmpty = true;
+      }
+    }, error=>console.log(error));
+    this.reportForm.reset();
+  }
 }
