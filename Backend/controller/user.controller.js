@@ -3,7 +3,7 @@ let fundsModel = require("../model/funds.model");
 
 let signUp = async (request,response)=> {
     let user = request.body;    // receive the data from post method
-    let mongoUser = JSON.parse("{\"fname\":\"" + user.firstname + "\", \"lname\":\"" + user.lastname + "\", \"email\":\"" + user.email + "\", \"password\":\"" + user.password + "\", \"addr\":\"" + user.address + "\", \"dob\":\"" + user.dob + "\", \"phone\":\"" + user.phone + "\", \"ticket\":\"false\", \"loginAttempt\":\"0\"}");
+    let mongoUser = JSON.parse("{\"fname\":\"" + user.firstname + "\", \"lname\":\"" + user.lastname + "\", \"email\":\"" + user.email + "\", \"password\":\"" + user.password + "\", \"addr\":\"" + user.address + "\", \"dob\":\"" + user.dob + "\", \"phone\":\"" + user.phone + "\", \"cart\": []" + ", \"ticket\":\"false\", \"loginAttempt\":\"0\"}");
     let userInfo = await userModel.findOne({email:user.email});
     if(userInfo==null){
         let result = await userModel.insertMany(mongoUser);

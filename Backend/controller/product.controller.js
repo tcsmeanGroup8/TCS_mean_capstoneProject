@@ -1,27 +1,29 @@
 //load the model file ie user-defined module
 let productModel = require("../model/product.model");
+let userModel = require("../model/user.model");
 
 //add products
-let addProductInfo = (request,response)=> {
+let addProduct = (request,response)=> {
     let product = new productModel({
         name:request.body.name,
         quantity:request.body.quantity,
         price:request.body.price
     });
-    console.log(product);
-
-    product.save((err,result)=>{
+    userModel.updateOne({email: request.body.userID}, {$push: {cart: product}},(err,data)=>{
         if(!err){
-            response.send("Product added successfully");
-        }else{
-            response.send(err);
+            console.log("Successfully added new product to cart " + request.body.userID);
+            response.send("1");
+        }
+        else{
+            console.log(err);
+            response.send("2");
         }
     })
 
 }
 
 //deleting products by id
-let deleteProductInfo = (request,response)=> {
+let deleteProduct = (request,response)=> {
     let pid = request.params.pid;
     productModel.deleteOne({_id:pid},(err,result)=> {
         if(!err){
@@ -35,20 +37,24 @@ let deleteProductInfo = (request,response)=> {
 }
 
 //getting all the products 
-let getAll = async (req, res, next) => {
-
-	const query = proModel.find({});
-
-	query.exec()
-		.then(doc => res.status(200).json(doc))
-		.catch(next)
-
+let getAll = (request, response) => {
+    let user = request.body.userID;
+    userModel.find({email: request.body.userID},(err,data)=>{
+        if(!err){
+            console.log("User: " + user + " has " + data[0].cart.length + " items in their cart");
+            response.send(String(data[0].cart.length));
+        }
+        else{
+            console.log(err);
+            response.send("0");
+        }
+    })
 };
 
 
 
 //update product by id
-let updateProductDetails = (request,response)=> {
+let updateProduct = (request,response)=> {
     let pid = request.body.pid;
     let priceChange = request.body.priceChange;
     let changeQuantity = request.body.changeQuantity;
@@ -84,4 +90,4 @@ let getProductDetails = (request,response)=>{
     })
 }
 
-module.exports = {addProductInfo,deleteProductInfo,getAll,updateProductDetails,selectProductById,getProductDetails}
+module.exports = {addProduct,deleteProduct,getAll,updateProduct,selectProductById,getProductDetails}

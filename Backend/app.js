@@ -11,6 +11,7 @@ let routerEmployee = require("./router/employee.router");
 //================= Routers =====================
 let adminRouter = require("./router/admin.router");
 let userRouter = require("./router/user.router");
+let productRouter = require("./router/product.router");
 // create the reference of express 
 let app = express();
 
@@ -34,6 +35,7 @@ app.use("/api/user", userRouter);
 app.use("/api/funds",routerFunds);
 app.use("/api/status",routerStatus);
 app.use("/api/employee",routerEmployee);
+app.use("/api/product",productRouter);
 
 /*app.get("/", (req, res) => {
     res.sendFile(__dirname + "/tempHTML/tempIndex.html");

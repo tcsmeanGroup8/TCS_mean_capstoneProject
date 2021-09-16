@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../model/product';
 import { HomeComponent } from '../home/home.component';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-user-panel',
@@ -21,11 +22,11 @@ export class UserPanelComponent implements OnInit {
   // empty cart
   cart = new Array<Product>();
 
-  constructor(public activateRoute: ActivatedRoute, public router: Router, public home: HomeComponent) { }
+  constructor(public activateRoute: ActivatedRoute, public router: Router, public home: HomeComponent, public userSer: UserService) { }
   ngOnInit(): void {
     //this.activateRoute.params.subscribe(data => this.userName = data.user);
     this.userName = this.home.userID;
-
+    this.fetchCart();
     this.displayProducts();
   }
 
@@ -85,9 +86,17 @@ export class UserPanelComponent implements OnInit {
   }
   //TODO: you will add to order collection in MongoDB once you place the order
   addToCart(item: Product) {
-    this.cart.push(item);
+    /*this.cart.push(item);
     localStorage.setItem("cartObj", JSON.stringify(this.cart));
     document.getElementById("size")!.innerText = this.cart.length + "";
+    console.log(this.cart.length);*/
+    item.userID = this.home.userID;
+    this.userSer.addToCart(item).subscribe(result=> { if (result) { this.fetchCart() }}, error=>console.log(error));
+  }
+
+  fetchCart() {
+    let item = { name: "", price: 0, userID: this.home.userID };
+    this.userSer.fetchCart(item).subscribe(result=> {document.getElementById("size")!.innerText = result}, error=>console.log(error));
   }
 
   displayCart() {
