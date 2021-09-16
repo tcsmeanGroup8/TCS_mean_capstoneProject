@@ -33,12 +33,15 @@ export class UserEditProfileComponent implements OnInit {
     account.userID = this.home.userID;
     this.userSer.editProfile(account).subscribe(result=> {
       if (result=="1") {
+        let url = "userPanel/" + account.email + "/editProfile";
+        this.router.navigate([url]);
         this.msg = "Profile successfully updated.";
       }
       else {
-        this.msg = "Wrong username or password!";
+        this.msg = "Error with your profile. Please submit a ticket!";
       }
     }, error=>console.log(error));
+    this.home.userID = account.email;
     this.accountRef.reset();
   }
 }

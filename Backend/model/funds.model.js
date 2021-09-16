@@ -3,7 +3,7 @@ let mongoose = require("mongoose");
 mongoose.pluralize(null);
 
 let fundsSchema = mongoose.Schema({
-    _id:Number,
+    email:Number,
     amount:Number
 });
 

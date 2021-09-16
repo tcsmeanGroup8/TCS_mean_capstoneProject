@@ -19,9 +19,10 @@ export class FundsComponent implements OnInit {
   });
 
   msg = "";
-  totalFunds = this.fetchFunds();
+  totalFunds = 0;
 
   ngOnInit(): void {
+    this.fetchFunds();
   }
 
   fetchFunds() {
