@@ -4,7 +4,6 @@ mongoose.pluralize(null);
 
 let fundsSchema = mongoose.Schema({
     _id:Number,
-    name:String,
     amount:Number
 });
 

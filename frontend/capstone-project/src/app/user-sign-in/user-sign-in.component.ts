@@ -28,6 +28,7 @@ export class UserSignInComponent implements OnInit {
     subscribe(result=>{
       if(result=="Success"){
         this.homePage.changeLogged("user");
+        this.homePage.setUserID(login.email);
         this.router.navigate(["userPanel", login.email]);
       }else {
           this.msg = result;

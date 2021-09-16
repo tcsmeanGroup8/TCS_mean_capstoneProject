@@ -1,1 +1,32 @@
-<p>user-edit-profile works!</p>
+<div>
+    <h2>Edit Profile</h2>
+    <form [formGroup]="accountRef" (ngSubmit)="editProfile()">
+        <label>First Name: </label>
+        <input type="text" formControlName="fname"> 
+        <br>
+        <label>Last Name: </label>
+        <input type="text" formControlName="lname"> 
+        <br>
+        <label>Email: </label>
+        <input type="text" formControlName="email"> 
+        <br>
+        <label>Password: </label>
+        <input type="password" formControlName="password"/> 
+        <br>
+        <label>Date of Birth: </label>
+        <input type="date" formControlName="dob"> 
+        <br>
+        <label>Phone Number: </label>
+        <input type="number" formControlName="phone"> 
+        <br>
+        <label>Address: </label>
+        <input type="number" formControlName="address"> 
+        <br>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+    <a routerLink="/userPanel{{this.home.userID}}">Back</a>
+    <br/>
+    {{msg}}
+</div>

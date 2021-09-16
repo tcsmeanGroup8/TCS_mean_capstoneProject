@@ -1,1 +1,18 @@
-<p>funds works!</p>
+<div class="container">
+    <div class="jumbotron p-md-5 text-white bg-dark" style="height:90vh;">
+        <div style="text-align: center; margin-top: 10%;">
+            <h1 class="display-4"> <span ng-init="fetchFunds()">You currently have ${{totalFunds}}.</span></h1>
+            <form form [formGroup]="fundsRef" (ngSubmit)="addFunds()">
+            <div class="input-group input-group-sm" style="margin: auto; width:50%">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Add Amount</span>
+                </div>
+                <input type="number" class="form-control" aria-label="title" aria-describedby="inputGroup-sizing-sm" formControlName="amount">
+            </div>
+            <button type="submit" class="btn btn-light" style="margin-top: 1%; margin-bottom: 15%;">Add</button> <br/>
+            {{msg}}
+            </form>
+            
+        </div>
+    </div>
+</div>

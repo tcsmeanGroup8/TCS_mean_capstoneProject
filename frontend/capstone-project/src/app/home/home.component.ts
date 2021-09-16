@@ -12,8 +12,13 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  userID = "";
   logged = "none";
+  
   changeLogged(mode: string) {
     this.logged = mode;
+  }
+  setUserID(id: string) {
+    this.userID = id;
   }
 }

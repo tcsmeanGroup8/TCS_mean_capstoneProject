@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../model/product';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-user-panel',
@@ -22,9 +23,10 @@ export class UserPanelComponent implements OnInit {
   // empty cart
   cart = new Array<Product>();
 
-  constructor(public activateRoute: ActivatedRoute, public router: Router) { }
+  constructor(public activateRoute: ActivatedRoute, public router: Router, public home: HomeComponent) { }
   ngOnInit(): void {
-    this.activateRoute.params.subscribe(data => this.userName = data.user);
+    //this.activateRoute.params.subscribe(data => this.userName = data.user);
+    this.userName = this.home.userID;
 
     this.displayProducts();
   }
