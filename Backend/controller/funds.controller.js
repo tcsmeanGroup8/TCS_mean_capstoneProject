@@ -22,7 +22,7 @@ let fetchFunds = (request,response)=>{
 let createFundsAccount = (request,response)=> {
     let userID = request.body.email;
     let startingAmount = "1000";
-    let newAccount = JSON.parse("{\"email\":" + userID +  ", \"amount\":" + startingAmount + "}");
+    let newAccount = JSON.parse("{\"email\":\"" + userID +  "\", \"amount\":" + startingAmount + "}");
     fundsModel.insertMany(newAccount,(err,result)=> {
         if(!err){
             console.log("New funds account has been created for " + userID);
