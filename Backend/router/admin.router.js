@@ -3,7 +3,7 @@ const router = express.Router();
 let adminController  = require("../controller/admin.controller");
 
 // get products from database
-router.get('/', adminController.getAllProducts);
+router.get('/getProducts', adminController.getAllProducts);
 //   add new prodcuts into database
 router.post('/addItem', adminController.addItem);
 // delete a product

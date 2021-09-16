@@ -14,10 +14,10 @@ const routes: Routes = [
   {path:"userSignIn",component:UserSignInComponent},
   {path:"userSignUp",component:UserSignUpComponent},
   {path:"userPanel/:user",component:UserPanelComponent},
-  {path:"adminPanel", component:AdminPanelComponent},
   {path:"employeeSignIn", component:EmployeeSignInComponent},
   {path:"empChangePassword/:employee", component:EmployeeChangePwComponent},
   {path:"employeePanel/:employee", component:EmployeePanelComponent},
+  {path:"adminPanel",loadChildren:()=>import('../admin/admin.module').then(m=>m.AdminModule)},
   {path:"",redirectTo:"userSignIn",pathMatch:"prefix"}
 ];
 
