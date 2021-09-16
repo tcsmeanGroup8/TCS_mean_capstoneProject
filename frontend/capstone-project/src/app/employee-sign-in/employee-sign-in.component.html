@@ -1,4 +1,4 @@
-<div>
+<!--div>
     <h2>Employee Login Page</h2>
     <form [formGroup]="empLoginRef" (ngSubmit)="checkEmp()">
         <label>Email: </label>
@@ -8,4 +8,30 @@
         <button type="submit">Login</button>
         {{msg}}
     </form>
+</div-->
+
+<div class="container" >
+    <div class="jumbotron p-md-5 text-white bg-dark" style="height:90vh;">
+        <div style="text-align: center; margin-top: 10%;">
+            <h1 class="display-4">Employee Login:</h1>
+            <form form [formGroup]="empLoginRef" (ngSubmit)="checkEmp()">
+            <div class="input-group input-group-sm" style="margin: auto; width:50%">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Email</span>
+                </div>
+                <input type="text" class="form-control" aria-label="title" aria-describedby="inputGroup-sizing-sm" formControlName="email">
+            </div>
+            <div class="input-group input-group-sm" style="margin: auto; width:50%">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Password</span>
+                </div>
+                <input type="password" class="form-control" aria-label="article" aria-describedby="inputGroup-sizing-sm" formControlName="password">
+            </div>
+            <button type="submit" class="btn btn-light" style="margin-top: 1%; margin-bottom: 15%;">Login</button> <br/>
+            {{msg}}
+            </form>
+            
+        </div>
+    </div>
+    
 </div>

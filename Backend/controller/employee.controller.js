@@ -35,8 +35,4 @@ let EMPchangePassword = (request,response)=>{
     })
 }
 
-let gotoEmpPanel = (request,response)=>{
-    response.sendFile(path.resolve(__dirname + "/../tempHTML/employeePanel.html"));
-}
-
-module.exports = {loginEmployee, EMPchangePassword, gotoEmpPanel}
+module.exports = {loginEmployee, EMPchangePassword}
