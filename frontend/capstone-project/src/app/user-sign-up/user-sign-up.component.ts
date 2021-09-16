@@ -31,6 +31,8 @@ export class UserSignUpComponent implements OnInit {
 
     this.userSer.signUpAccount(account)
     .subscribe(result=>this.msg=result,error=>console.log(error));
+    this.userSer.signUpFunds(account)
+    .subscribe(error=>console.log(error));
     this.accountRef.reset();
   }
 

@@ -9,6 +9,7 @@ import { EmployeeSignInComponent } from './employee-sign-in/employee-sign-in.com
 import { EmployeeChangePwComponent } from './employee-change-pw/employee-change-pw.component';
 import { EmployeePanelComponent } from './employee-panel/employee-panel.component';
 import { FundsComponent } from './funds/funds.component';
+import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.component';
 
 const routes: Routes = [
   {path: "home", component:HomeComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path:"userSignUp",component:UserSignUpComponent},
   {path:"userPanel/:user",component:UserPanelComponent},
   {path:"userPanel/:user/funds",component:FundsComponent},
+  {path:"userPanel/:user/editProfile",component:UserEditProfileComponent},
   {path:"employeeSignIn", component:EmployeeSignInComponent},
   {path:"empChangePassword/:employee", component:EmployeeChangePwComponent},
   {path:"employeePanel/:employee", component:EmployeePanelComponent},
