@@ -13,6 +13,8 @@ import { HomeComponent } from './home/home.component';
 import { EmployeeSignInComponent } from './employee-sign-in/employee-sign-in.component';
 import { EmployeePanelComponent } from './employee-panel/employee-panel.component';
 import { EmployeeChangePwComponent } from './employee-change-pw/employee-change-pw.component';
+import { FundsComponent } from './funds/funds.component';
+import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { EmployeeChangePwComponent } from './employee-change-pw/employee-change-
     HomeComponent,
     EmployeeSignInComponent,
     EmployeePanelComponent,
-    EmployeeChangePwComponent
+    EmployeeChangePwComponent,
+    FundsComponent,
+    UserEditProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="logged=='none'">
       <header>
           <div class="logo">Store</div>
           <nav>
@@ -25,4 +25,55 @@
         <router-outlet></router-outlet>
       </div>
       
+</div>
+
+
+<div class="container-fluid" *ngIf="logged=='user'">
+  <header>
+      <div class="logo">Store</div>
+      <nav>
+          <ul class="nav-link">
+            <li>Put other user operation here</li>
+            <li><a routerLink="userPanel/editProfile">Edit Profile</a></li>
+            <li><a routerLink="userPanel/funds">Funds</a></li>
+          </ul>
+      </nav>
+      
+      <div class="loginSignin">
+          <div>
+            <a class="link" routerLink="/userSignIn"><button type="button" class="btn btn-danger" (click)="changeLogged('none')">Sign Out</button></a>
+          </div>
+      </div>
+     
+  </header>
+  <div class="pages">
+    <router-outlet></router-outlet>
+  </div>
+  
+</div>
+
+<div class="container-fluid" *ngIf="logged=='emp'">
+  <header>
+      <div class="logo">Store</div>
+      <nav>
+          <ul class="nav-link">
+            <li><a routerLink="/">Home</a></li>
+            <li><a routerLink="/sendRequest">Send Request</a></li>
+            <li><a routerLink="/updateOrderStatus">Update Order Status</a></li>
+            <li><a routerLink="/unlockUsers">Unlock Users</a></li>
+            <li><a routerLink="/editProfile">Edit Profile</a></li>
+          </ul>
+      </nav>
+      
+      <div class="loginSignin">
+          <div>
+            <a class="link" routerLink="/employeeSignIn"><button type="button" class="btn btn-danger" (click)="changeLogged('none')">Sign Out</button></a>
+          </div>
+      </div>
+     
+  </header>
+  <div class="pages">
+    <router-outlet></router-outlet>
+  </div>
+  
 </div>

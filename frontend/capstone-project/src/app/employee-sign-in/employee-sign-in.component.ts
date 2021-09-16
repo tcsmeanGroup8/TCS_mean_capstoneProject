@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EmployeeService } from '../services/employee.service';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-employee-sign-in',
@@ -14,7 +15,7 @@ export class EmployeeSignInComponent implements OnInit {
     password:new FormControl()
   });
 
-  constructor(public empSer:EmployeeService,
+  constructor(public empSer:EmployeeService,  public homePage:HomeComponent,
     public router:Router) { }
   
   msg?:string;
@@ -26,9 +27,11 @@ export class EmployeeSignInComponent implements OnInit {
     let login = this.empLoginRef.value;
     this.empSer.empSignInAccount(login).subscribe(result=> {
       if (result=="1") {
+        this.homePage.changeLogged('emp');
         this.router.navigate(["employeePanel", login.email]);
       }
-      else if (result=="3") {//SWAP THIS OR ELSE
+      else if (result=="3") {
+        this.homePage.changeLogged('emp');
         this.router.navigate(["empChangePassword", login.email]);
       }
       else {

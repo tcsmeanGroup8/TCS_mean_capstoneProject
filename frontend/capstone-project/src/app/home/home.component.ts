@@ -12,4 +12,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  logged = "none";
+  changeLogged(mode: string) {
+    this.logged = mode;
+  }
 }
