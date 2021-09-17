@@ -11,6 +11,7 @@ export class UserService {
   user_port = "http://localhost:9090/api/user";
   funds_port = "http://localhost:9090/api/funds";
   product_port = "http://localhost:9090/api/product";
+  status_port = "http://localhost:9090/api/status";
 
   constructor(public http: HttpClient) { }
 
@@ -38,6 +39,10 @@ export class UserService {
     return this.http.post(this.funds_port + "/addFunds", user, { responseType: 'text' });
   }
 
+  subtractFunds(user: User): Observable<any> {
+    return this.http.post(this.funds_port + "/subtractFunds", user, { responseType: 'text' });
+  }
+
   addToCart(item: Product): Observable<any> {
     return this.http.post(this.product_port + "/addProduct", item, { responseType: 'text' });
   }
@@ -45,4 +50,9 @@ export class UserService {
   fetchCart(item: Product): Observable<any> {
     return this.http.post(this.product_port + "/getAllProducts", item, { responseType: 'text' });
   }
+
+  submitOrder(user: User): Observable<any> {
+    return this.http.post(this.status_port + "/createStatus", user, { responseType: 'text' });
+  }
+
 }

@@ -45,7 +45,6 @@ let deleteFundsAccount = (request,response)=> {
             console.log(err);
         }
     })
-    response.redirect("/funding"); //TODO change redirect to home page (after creation)
 }
 
 let addFunds = (request,response)=> {
@@ -65,17 +64,22 @@ let addFunds = (request,response)=> {
 }
 
 let subtractFunds = (request,response)=> {
-    let userID = 1; //TODO get user id here
-    let cost = request.body.cost * -1;   //TODO get user cost
-    fundsModel.updateOne({email: userID},{$inc: {amount: cost}},(err,result)=> {
+    let order = request.body;
+    let cartTotal = 0;
+    for (let i = 0; i < order.cart.length; ++i) {
+        cartTotal += order.cart[i].price;
+    }
+    cartTotal = cartTotal * -1;
+    fundsModel.updateOne({email: order.email},{$inc: {amount: cartTotal}},(err,result)=> {
         if(!err){
-            console.log("Successfully subtracted " + cost + " from account number " + userID);
+            console.log("Successfully subtracted " + cartTotal + " from account number " + order.email);
+            response.send("1");
         }
         else {
             console.log(err);
+            response.send("0");
         }
     })
-    response.redirect("/funding"); //TODO change redirect to home page (after creation)
 }
 
 module.exports = {fetchFunds, subtractFunds, addFunds, createFundsAccount, deleteFundsAccount}

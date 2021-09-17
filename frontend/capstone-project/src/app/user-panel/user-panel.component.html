@@ -1,14 +1,10 @@
 <h2>Welcome {{userName}} to User Panel  </h2>
 
-<a routerLink=""> Edit Profile</a> |
 <a routerLink=""> Manage Account</a> |
 <a routerLink=""> Order History</a> |
-<a routerLink=""> Raise Ticket</a> |
-<a routerLink="/userSignIn"> Log Out</a> &nbsp;
+<a routerLink=""> Raise Ticket</a> &nbsp;
 
-    <form>
-        <input type="submit" value="Check Out" style="text-align: center; font-size: larger; color: crimson;">
-    </form>
+<a routerLink="/userPanel/{{this.home.userID}}/checkout"><input type="button" value="Check Out" style="text-align: center; font-size: larger; color: crimson;"></a>
 
 
 

@@ -96,7 +96,11 @@ export class UserPanelComponent implements OnInit {
 
   fetchCart() {
     let item = { name: "", price: 0, userID: this.home.userID };
-    this.userSer.fetchCart(item).subscribe(result=> {document.getElementById("size")!.innerText = result}, error=>console.log(error));
+    this.userSer.fetchCart(item).subscribe(result=> {
+      if (result != undefined) {
+        document.getElementById("size")!.innerText = JSON.parse(result).cart.length;
+      }
+    }, error=>console.log(error));
   }
 
   displayCart() {

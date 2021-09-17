@@ -15,6 +15,8 @@ import { EmployeePanelComponent } from './employee-panel/employee-panel.componen
 import { EmployeeChangePwComponent } from './employee-change-pw/employee-change-pw.component';
 import { FundsComponent } from './funds/funds.component';
 import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.component';
+import { UserCheckoutComponent } from './user-checkout/user-checkout.component';
+import { UserOrderstatusComponent } from './user-orderstatus/user-orderstatus.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.
     EmployeePanelComponent,
     EmployeeChangePwComponent,
     FundsComponent,
-    UserEditProfileComponent
+    UserEditProfileComponent,
+    UserCheckoutComponent,
+    UserOrderstatusComponent
   ],
   imports: [
     BrowserModule,

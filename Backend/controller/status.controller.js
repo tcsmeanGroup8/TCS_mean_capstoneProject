@@ -13,21 +13,24 @@ let fetchStatus = (request,response)=>{
 }
 
 let createStatus = (request,response)=> {
-    let orderID = 1; //TODO get order id here
-    let cstate = "CA"; //Current State and Country defaulted to CA, USA.
-    let ccountry = "USA";
-    let dstate = request.body.ds; //TODO get destination state here
-    let dcountry = request.body.dc; //TODO get destination country here
-    let newStatus = JSON.parse("{\"_id\":" + orderID + ", \"current_State\":\"" + cstate + "\", \"current_Country\":\"" + ccountry + "\", \"destination_State\":\"" + dstate + "\", \"destination_Country\":\"" + dcountry + "\"}");
+    let order = request.body;
+    let cartTotal = 0;
+    for (let i = 0; i < order.cart.length; ++i) {
+        cartTotal += order.cart[i].price;
+    }
+    let today = new Date().toISOString().slice(0, 10);
+    let status = "Order Submitted";
+    let newStatus = JSON.parse("{\"email\":\"" + order.email + "\", \"status\":\"" + status + "\", \"total\":" + String(cartTotal) + ", \"Date\":\"" + String(today) + "\", \"cart\":[" + JSON.stringify(order.cart) + "]}");
     statusModel.insertMany(newStatus,(err,result)=> {
         if(!err){
-            console.log("New order status has been created for " + orderID);
+            console.log("New order status has been created for " + order.email);
+            response.send(String(cartTotal));
         }
         else {
             console.log(err);
+            response.send("0");
         }
     })
-    response.redirect("/orderStatus"); //TODO change redirect to home page (after creation)
 }
 
 let deleteStatus = (request,response)=> {
@@ -60,4 +63,4 @@ let updateStatus = (request,response)=> {
     response.redirect("/orderStatus"); //TODO change redirect to home page (after creation)
 }
 
-module.exports = {fetchStatus, createStatus, deleteStatus, updateStatus}
+module.exports = {fetchStatus, createStatus, deleteStatus, updateStatus, createStatus}

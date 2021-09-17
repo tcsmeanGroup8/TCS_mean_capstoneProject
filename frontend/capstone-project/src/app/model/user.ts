@@ -7,4 +7,5 @@ export interface User {
     phone?: number,
     address?: string,
     userId?: number
+    cart?: any
 }

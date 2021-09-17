@@ -41,8 +41,8 @@ let getAll = (request, response) => {
     let user = request.body.userID;
     userModel.find({email: request.body.userID},(err,data)=>{
         if(!err){
-            console.log("User: " + user + " has " + data[0].cart.length + " items in their cart");
-            response.send(String(data[0].cart.length));
+            //console.log("User: " + user + " has " + data[0].cart.length + " items in their cart");
+            response.send(data[0]);
         }
         else{
             console.log(err);

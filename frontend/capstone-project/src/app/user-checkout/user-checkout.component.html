@@ -1,0 +1,40 @@
+<div style="text-align: center;">
+    <h2 style="font-size: 40px;">Checkout Page</h2>
+    <div class="container">
+        <div class="row">
+            <div style="text-align: center; font-size: xx-large;" >
+                <label>Your funds: ${{totalFunds}}</label>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div style="text-align: center; color: green; font-size: xx-large;" >
+                <label>Cart Size:</label><label id="size" style= " text-align: center; font-size:larger; color: crimson; ">0</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="items_container" >
+    <div *ngIf="allowDisplay" style="text-align: center;">
+        <table border="1" style="margin: auto;">
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+            </tr>
+            <tr *ngFor="let c of userCart">
+                <td>{{c.name}}</td>
+                <td>{{c.price}}</td>
+            </tr>
+        </table>
+        <br/>
+        <h2>Your total is: ${{totalPrice}}</h2>
+        <br/>
+        <div>
+            <input type="Button" value="Submit Order" (click)="submitOrder()">
+            <br/>
+            {{msg}}
+        </div>
+    </div>
+</div>

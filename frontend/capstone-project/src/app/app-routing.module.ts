@@ -10,9 +10,11 @@ import { EmployeeChangePwComponent } from './employee-change-pw/employee-change-
 import { EmployeePanelComponent } from './employee-panel/employee-panel.component';
 import { FundsComponent } from './funds/funds.component';
 import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.component';
+import { UserCheckoutComponent } from './user-checkout/user-checkout.component';
+import { UserOrderstatusComponent } from './user-orderstatus/user-orderstatus.component';
 
 const routes: Routes = [
-  {path: "home", component:HomeComponent},
+  {path:"home", component:HomeComponent},
   {path:"userSignIn",component:UserSignInComponent},
   {path:"userSignUp",component:UserSignUpComponent},
   {path:"userPanel/:user",component:UserPanelComponent},
@@ -23,6 +25,8 @@ const routes: Routes = [
   {path:"employeePanel/:employee", component:EmployeePanelComponent},
   {path:"adminPanel", component:AdminPanelComponent},
   //{path:"adminPanel",loadChildren:()=>import('../admin/admin.module').then(m=>m.AdminModule)},
+  {path:"userPanel/:user/checkout",component:UserCheckoutComponent},
+  {path:"userPanel/:user/orderStatus",component:UserOrderstatusComponent},
   {path:"",redirectTo:"userSignIn",pathMatch:"prefix"}
 ];
 
