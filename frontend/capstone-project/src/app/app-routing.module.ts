@@ -10,12 +10,14 @@ import { EmployeeChangePwComponent } from './employee-change-pw/employee-change-
 import { EmployeePanelComponent } from './employee-panel/employee-panel.component';
 import { FundsComponent } from './funds/funds.component';
 import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.component';
+import { TicketComponent } from './ticket/ticket.component';
 
 const routes: Routes = [
   {path: "home", component:HomeComponent},
   {path:"userSignIn",component:UserSignInComponent},
   {path:"userSignUp",component:UserSignUpComponent},
   {path:"userPanel/:user",component:UserPanelComponent},
+  {path:"ticket",component:TicketComponent},
   {path:"userPanel/:user/funds",component:FundsComponent},
   {path:"userPanel/:user/editProfile",component:UserEditProfileComponent},
   {path:"employeeSignIn", component:EmployeeSignInComponent},

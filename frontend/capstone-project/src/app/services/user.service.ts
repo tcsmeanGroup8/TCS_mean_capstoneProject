@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../model/user';
+import { Ticket } from '../model/ticket';
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +35,9 @@ export class UserService {
 
   addFunds(user: User): Observable<any> {
     return this.http.post(this.funds_port + "/addFunds", user, { responseType: 'text' });
+  }
+
+  raiseTicket(ticket:Ticket):Observable<any>{
+    return this.http.post(this.user_port+"/createTicket",ticket,{responseType:'text'});
   }
 }

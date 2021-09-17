@@ -15,6 +15,7 @@ import { EmployeePanelComponent } from './employee-panel/employee-panel.componen
 import { EmployeeChangePwComponent } from './employee-change-pw/employee-change-pw.component';
 import { FundsComponent } from './funds/funds.component';
 import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.component';
+import { TicketComponent } from './ticket/ticket.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.
     EmployeePanelComponent,
     EmployeeChangePwComponent,
     FundsComponent,
-    UserEditProfileComponent
+    UserEditProfileComponent,
+    TicketComponent
   ],
   imports: [
     BrowserModule,
