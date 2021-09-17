@@ -30,7 +30,6 @@ let signIn = async (request, response) => {
 let editUser = async (request,response)=> {
     let user = request.body;
     let userID = user.userID;
-    console.log(userID);
     for (let u in user) {
         if (!user[u]) {
             delete user[u];
@@ -45,7 +44,6 @@ let editUser = async (request,response)=> {
         }
     })
     let newEmail = user.email;
-    console.log(userID);
     let temp2 = fundsModel.updateOne({email: userID},{$set: {email:newEmail}},(err,result)=> {
         if(!err){
             console.log("Successfully updated user funds account");

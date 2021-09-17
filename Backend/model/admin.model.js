@@ -7,6 +7,6 @@ let adminSchema = mongoose.Schema({
     password: { type: String, required: true }
 });
 
-let adminModel = mongoose.model("Admin", adminSchema);
+let adminModel = mongoose.model("admin", adminSchema);
 
 module.exports = adminModel;

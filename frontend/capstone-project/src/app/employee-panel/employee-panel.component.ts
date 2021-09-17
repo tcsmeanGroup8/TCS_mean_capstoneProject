@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-employee-panel',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeePanelComponent implements OnInit {
 
-  constructor() { }
+  constructor(public home: HomeComponent) { }
 
   ngOnInit(): void {
+    this.emp = this.home.userID;
   }
+
+  emp = this.home.userID;
 
 }

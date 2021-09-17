@@ -19,7 +19,7 @@ router.get("/getReportByProduct", reportController.retrieveReportByProduct);
 router.get("/getReportByEmail", reportController.retrieveReportByEmail);
 
 
-
+router.post("/admSignIn", adminController.admSignIn);
 
 
 

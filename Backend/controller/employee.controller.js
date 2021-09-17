@@ -4,7 +4,6 @@ let path = require("path");
 let loginEmployee = async (request,response)=>{
     let empEmail = request.body.email;
     let empPW = request.body.password;
-    console.log(empEmail, empPW);
     let empInfo = await employeeModel.findOne({email: empEmail, password: empPW});
     if (empInfo != null) {
         if (empPW == "123") {   //123 is default password for now
@@ -23,7 +22,6 @@ let loginEmployee = async (request,response)=>{
 let EMPchangePassword = (request,response)=>{
     let empEmail = request.body.email;
     let empPW = request.body.password;
-    console.log(empEmail, empPW);
     employeeModel.updateOne({email: empEmail}, {password: empPW},(err,data)=>{
         if(!err){
             console.log("Password changed successfully!");

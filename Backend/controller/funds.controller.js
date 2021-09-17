@@ -2,7 +2,6 @@ let fundsModel = require("../model/funds.model");
 
 let fetchFunds = (request,response)=>{
     let userID = request.body.email;
-    console.log(userID);
     fundsModel.find({email: userID},(err,data)=>{
         if(!err){
             if (data != undefined) {

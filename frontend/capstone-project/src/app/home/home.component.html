@@ -14,7 +14,7 @@
           <nav>
               <ul class="nav-link">
                 <li><a routerLink="/">Home</a></li>
-                <li><a routerLink="/adminPanel">Admin</a></li>
+                <li><a routerLink="/adminSignIn">Admin</a></li>
                 <li><a routerLink="/employeeSignIn">Employee</a></li>
               </ul>
           </nav>
@@ -68,17 +68,46 @@
       <div class="logo">Store</div>
       <nav>
           <ul class="nav-link">
-            <li><a routerLink="/">Home</a></li>
-            <li><a routerLink="/sendRequest">Send Request</a></li>
-            <li><a routerLink="/updateOrderStatus">Update Order Status</a></li>
-            <li><a routerLink="/unlockUsers">Unlock Users</a></li>
-            <li><a routerLink="/editProfile">Edit Profile</a></li>
+            <li><a routerLink="/employeePanel/{{userID}}">Home</a></li>
+            <li><a routerLink="/employeePanel/{{userID}}">Send Request</a></li>
+            <li><a routerLink="/employeePanel/{{userID}}">Update Order Status</a></li>
+            <li><a routerLink="/employeePanel/{{userID}}">Unlock Users</a></li>
+            <li><a routerLink="/employeePanel/{{userID}}">Edit Profile</a></li>
           </ul>
       </nav>
       
       <div class="loginSignin">
           <div>
             <a class="link" routerLink="/employeeSignIn"><button type="button" class="btn btn-danger" (click)="changeLogged('none')">Sign Out</button></a>
+          </div>
+      </div>
+     
+  </header>
+  <div class="pages">
+    <router-outlet></router-outlet>
+  </div>
+  
+</div>
+
+<div class="container-fluid" *ngIf="logged=='adm'">
+  <header>
+      <div class="logo">Store</div>
+      <nav>
+          <ul class="nav-link">
+            <li><a routerLink="/adminPanel">Home</a></li>
+            <li><a routerLink="/adminPanel">Add Products</a></li>
+            <li><a routerLink="/adminPanel">Delete Products</a></li>
+            <li><a routerLink="/adminPanel">Update Products</a></li>
+            <li><a routerLink="/adminPanel">View Requests</a></li>
+            <li><a routerLink="/adminPanel">Add Employees</a></li>
+            <li><a routerLink="/adminPanel">Delete Employees</a></li>
+            <li><a routerLink="/adminPanel">Generate Report</a></li>
+          </ul>
+      </nav>
+      
+      <div class="loginSignin">
+          <div>
+            <a class="link" routerLink="/adminSignIn"><button type="button" class="btn btn-danger" (click)="changeLogged('none')">Sign Out</button></a>
           </div>
       </div>
      

@@ -1,8 +1,9 @@
 var product = require("../model/product.model");
+let adminModel = require("../model/admin.model");
 var mongoose = require('mongoose');
 
 
-exports.getAllProducts =  function(req,res,next){
+let getAllProducts =  function(req,res,next){
     product.find(function(err,Products){
         if(err)
         return next(err);
@@ -10,21 +11,37 @@ exports.getAllProducts =  function(req,res,next){
     });
 }
 
-exports.addItem = function(req,res,next){
+let addItem = function(req,res,next){
     product.create(req.body, function(err,product){
         if(err) return next(err);
         res.json(product);
     })
 }
-exports.deleteItemById = function(req,res,next){
+ let deleteItemById = function(req,res,next){
     product.findByIdAndRemove(req.params.id,req.body,function(err,prod){
         if(err) return next(err);
         res.json(prod);
     });
 }
-exports.updateItemById = function(req,res,next){
+let updateItemById = function(req,res,next){
     product.updateItemById(req.params.id,req.body,function(err,prod){
         if(err) return next(err);
         res.json(prod);
     });
 }
+
+let admSignIn = async (request, response) => {
+    let user = request.body;
+    console.log(user.username, user.password);
+    let userInfo = await adminModel.findOne({
+        username: user.username,
+        password: user.password
+    });
+    if (userInfo != null) {
+        response.send("Success");
+    } else {
+        response.send("Invalid username or password, please try again.");
+    }
+}
+
+module.exports={admSignIn,getAllProducts,addItem,deleteItemById,updateItemById}

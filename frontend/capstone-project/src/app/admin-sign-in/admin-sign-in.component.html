@@ -1,13 +1,13 @@
 <div class="container" >
     <div class="jumbotron p-md-5 text-white bg-dark" style="height:88vh;">
         <div style="text-align: center; margin-top: 10%;">
-            <h1 class="display-4">User Login:</h1>
-            <form form [formGroup]="loginRef" (ngSubmit)="checkUser()">
+            <h1 class="display-4">Admin Login:</h1>
+            <form form [formGroup]="admLoginRef" (ngSubmit)="checkAdm()">
             <div class="input-group input-group-sm" style="margin: auto; width:50%">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-sm">Email</span>
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Username</span>
                 </div>
-                <input type="text" class="form-control" aria-label="title" aria-describedby="inputGroup-sizing-sm" formControlName="email">
+                <input type="text" class="form-control" aria-label="title" aria-describedby="inputGroup-sizing-sm" formControlName="username">
             </div>
             <div class="input-group input-group-sm" style="margin: auto; width:50%">
                 <div class="input-group-prepend">
@@ -15,8 +15,7 @@
                 </div>
                 <input type="password" class="form-control" aria-label="article" aria-describedby="inputGroup-sizing-sm" formControlName="password">
             </div>
-            <button type="submit" class="btn btn-success" style="margin-top: 1%; margin-bottom: 15%;">Login</button>
-            <button type="reset" class="btn btn-danger" style="margin-top: 1%; margin-bottom: 15%;">Reset</button> <br/>
+            <button type="submit" class="btn btn-light" style="margin-top: 1%; margin-bottom: 15%;">Login</button> <br/>
             {{msg}}
             </form>
         </div>

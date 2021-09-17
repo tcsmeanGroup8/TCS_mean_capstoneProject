@@ -18,6 +18,7 @@ import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.
 import { UserCheckoutComponent } from './user-checkout/user-checkout.component';
 import { UserOrderstatusComponent } from './user-orderstatus/user-orderstatus.component';
 import { TicketComponent } from './ticket/ticket.component';
+import { AdminSignInComponent } from './admin-sign-in/admin-sign-in.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { TicketComponent } from './ticket/ticket.component';
     UserEditProfileComponent,
     UserCheckoutComponent,
     UserOrderstatusComponent,
-    TicketComponent
+    TicketComponent,
+    AdminSignInComponent
   ],
   imports: [
     BrowserModule,

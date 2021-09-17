@@ -13,6 +13,7 @@ import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.
 import { UserCheckoutComponent } from './user-checkout/user-checkout.component';
 import { UserOrderstatusComponent } from './user-orderstatus/user-orderstatus.component';
 import { TicketComponent } from './ticket/ticket.component';
+import { AdminSignInComponent } from './admin-sign-in/admin-sign-in.component';
 
 const routes: Routes = [
   {path:"home", component:HomeComponent},
@@ -25,8 +26,8 @@ const routes: Routes = [
   {path:"employeeSignIn", component:EmployeeSignInComponent},
   {path:"empChangePassword/:employee", component:EmployeeChangePwComponent},
   {path:"employeePanel/:employee", component:EmployeePanelComponent},
+  {path:"adminSignIn", component:AdminSignInComponent},
   {path:"adminPanel", component:AdminPanelComponent},
-  //{path:"adminPanel",loadChildren:()=>import('../admin/admin.module').then(m=>m.AdminModule)},
   {path:"userPanel/:user/checkout",component:UserCheckoutComponent},
   {path:"userPanel/:user/orderStatus",component:UserOrderstatusComponent},
   {path:"",redirectTo:"userSignIn",pathMatch:"prefix"}
