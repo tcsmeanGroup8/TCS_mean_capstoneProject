@@ -56,18 +56,14 @@ export class UserCheckoutComponent implements OnInit {
       this.userSer.subtractFunds(user).subscribe(result=> {}, error=>console.log(error));
       user.cart = [];
       this.userSer.editProfile(user).subscribe(result=> {}, error=>console.log(error));
-      /*let url = "userPanel/" + this.arouter.snapshot.url[1].path + "/orderStatus";
+      let url = "userPanel/" + this.arouter.snapshot.url[1].path + "/orderStatus";
       console.log(url);
-      this.router.navigate(["url"]);*/
+      this.router.navigate([url]);
       this.msg = "Successfully placed order!"
     }
     else {
       this.msg = "Error: You do not have sufficient funds. Please add more in your funds tab.";
     }
-  }
-
-  createOrderStatus() { //TODO: send email and return all statuses
-
   }
 
 }
