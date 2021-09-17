@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../model/user';
 import { Ticket } from '../model/ticket';
+import { Product } from '../model/product';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { Ticket } from '../model/ticket';
 export class UserService {
   user_port = "http://localhost:9090/api/user";
   funds_port = "http://localhost:9090/api/funds";
+  product_port = "http://localhost:9090/api/product";
 
   constructor(public http: HttpClient) { }
 
@@ -39,5 +41,12 @@ export class UserService {
 
   raiseTicket(ticket:Ticket):Observable<any>{
     return this.http.post(this.user_port+"/createTicket",ticket,{responseType:'text'});
+  }
+  addToCart(item: Product): Observable<any> {
+    return this.http.post(this.product_port + "/addProduct", item, { responseType: 'text' });
+  }
+
+  fetchCart(item: Product): Observable<any> {
+    return this.http.post(this.product_port + "/getAllProducts", item, { responseType: 'text' });
   }
 }

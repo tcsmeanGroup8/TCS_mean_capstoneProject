@@ -1,4 +1,5 @@
 let mongoose = require("mongoose");
+let productModel = require("../model/product.model");
 mongoose.Promise = global.Promise;
 
 let userSchema = mongoose.Schema({
@@ -13,7 +14,8 @@ let userSchema = mongoose.Schema({
    ticket: Boolean,
    loginAttempt: Number,
    phoneNum: String,
-   isLocked: Boolean
+   isLocked: Boolean,
+   cart: Array
 });
 
 let UserModel= mongoose.model(" ", userSchema, "usersTable");
