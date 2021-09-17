@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../model/user';
+import { Ticket } from '../model/ticket';
 import { Product } from '../model/product';
 
 @Injectable({
@@ -43,6 +44,9 @@ export class UserService {
     return this.http.post(this.funds_port + "/subtractFunds", user, { responseType: 'text' });
   }
 
+  raiseTicket(ticket:Ticket):Observable<any>{
+    return this.http.post(this.user_port+"/createTicket",ticket,{responseType:'text'});
+  }
   addToCart(item: Product): Observable<any> {
     return this.http.post(this.product_port + "/addProduct", item, { responseType: 'text' });
   }

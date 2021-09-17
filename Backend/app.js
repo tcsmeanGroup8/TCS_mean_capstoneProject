@@ -21,8 +21,7 @@ app.use(bodyParser.json())
 //app.use(bodyParser.urlencoded({ extended: true }));
 
 //url database 
-let url = "mongodb+srv://sathwikakatam:Sathwika123@cluster0.xcudk.mongodb.net/TataStores?retryWrites=true&w=majority"
-
+let url = "mongodb+srv://sathwikakatam:Sathwika123@cluster0.xcudk.mongodb.net/TataStores?retryWrites=true&w=majority";
 // connect the database 
 mongoose.connect(url).
 then(res=>console.log("connected")).

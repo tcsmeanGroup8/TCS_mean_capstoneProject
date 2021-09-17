@@ -17,6 +17,7 @@ import { FundsComponent } from './funds/funds.component';
 import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.component';
 import { UserCheckoutComponent } from './user-checkout/user-checkout.component';
 import { UserOrderstatusComponent } from './user-orderstatus/user-orderstatus.component';
+import { TicketComponent } from './ticket/ticket.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { UserOrderstatusComponent } from './user-orderstatus/user-orderstatus.co
     FundsComponent,
     UserEditProfileComponent,
     UserCheckoutComponent,
-    UserOrderstatusComponent
+    UserOrderstatusComponent,
+    TicketComponent
   ],
   imports: [
     BrowserModule,
