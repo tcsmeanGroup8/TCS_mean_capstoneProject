@@ -14,11 +14,8 @@
 
 }
 
-li, a , button{
+li, button{
     font-family: 'Times New Roman', Times, serif;
-    
-    
-    color: blue;
     font-size: larger;   
     text-decoration: none;
 }
@@ -58,4 +55,22 @@ header {
     justify-content: space-between;
 
 }
+
+a {
+    background-color: red;
+    color: white;
+    padding: 1em 1.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  
+  a:hover {
+    background-color: #555;
+  }
+  
+  a:active {
+    background-color: black;
+  }
+  
+
 
