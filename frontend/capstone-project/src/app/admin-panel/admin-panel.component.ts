@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { EmployeeService } from '../services/employee.service';
 import { ReportService } from '../services/report.service';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -59,6 +61,10 @@ export class AdminPanelComponent implements OnInit {
     this.empSer.deleteEmployee(employee)
     .subscribe(result=>this.deleteMsg=result.msg, error=>console.log(error));
     this.employeeRef.reset();
+  }
+
+  gotoProduct(){
+  //  this.router.navigate(["addProduct"])
   }
   
   // generate report

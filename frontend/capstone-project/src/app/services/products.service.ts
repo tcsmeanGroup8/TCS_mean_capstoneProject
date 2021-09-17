@@ -26,4 +26,8 @@ export class ProductsService {
 			)
 	}
 
+	addProduct(pro:Product): Observable<any>{
+		return this.http.post(this.host+ "/api/product"+"/addProduct", pro, { responseType: 'text' });
+	  }
+
 }

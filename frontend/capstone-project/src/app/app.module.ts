@@ -19,6 +19,8 @@ import { UserCheckoutComponent } from './user-checkout/user-checkout.component';
 import { UserOrderstatusComponent } from './user-orderstatus/user-orderstatus.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { AdminSignInComponent } from './admin-sign-in/admin-sign-in.component';
+import { AddProductComponent } from './add-product/add-product.component';
+
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { AdminSignInComponent } from './admin-sign-in/admin-sign-in.component';
     UserSignInComponent,
     AdminPanelComponent,
     HomeComponent,
+    AddProductComponent,
     EmployeeSignInComponent,
     EmployeePanelComponent,
     EmployeeChangePwComponent,
