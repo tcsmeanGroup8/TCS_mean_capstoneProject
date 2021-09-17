@@ -19,6 +19,32 @@ let loginEmployee = async (request,response)=>{
     }
 }
 
+const addEmployee = async (req, res) => {
+    console.log("Adding Employee");
+    let employee = req.body;
+    console.log(employee);
+    let empWithPass = {...employee, "password":"123"};
+    await empModel.insertMany([empWithPass], (e, result) => {
+        if(e){
+            res.status(400).send({"msg":e});
+        }else{
+            // send 
+            res.status(200).send({"msg": "New Employee added successfully", "result": result});
+        }
+    });
+}
+
+// Deleting the Employee by emailid
+const deleteEmployee = async (req, res) => {
+    let deletedEid = req.params.emailid;
+    let r = await empModel.deleteOne({emailid: deletedEid});
+    if(r.deletedCount == 0){
+        res.status(400).send({"msg": "Employee could not be deleted, please input a valid email id"});
+    }else{
+        res.status(200).send({"msg": `Employee ${deletedEid} deleted`})
+    }
+}
+
 let EMPchangePassword = (request,response)=>{
     let empEmail = request.body.email;
     let empPW = request.body.password;
@@ -33,4 +59,4 @@ let EMPchangePassword = (request,response)=>{
     })
 }
 
-module.exports = {loginEmployee, EMPchangePassword}
+module.exports = {loginEmployee, EMPchangePassword, addEmployee, deleteEmployee}

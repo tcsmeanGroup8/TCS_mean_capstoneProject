@@ -44,6 +44,22 @@ export class AdminPanelComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  // create the new employee
+  employeeCreate(){
+    let employee = this.employeeRef.value;
+    this.empSer.addEmployee(employee)
+    .subscribe(result=>this.addMsg=result.msg, error=>console.log(error));
+    this.employeeRef.reset();
+  }
+  
+  // delete the employee with
+  employeeDelete(){
+    let employee = this.employeeDeleteRef.value;
+    this.empSer.deleteEmployee(employee)
+    .subscribe(result=>this.deleteMsg=result.msg, error=>console.log(error));
+    this.employeeRef.reset();
+  }
   
   // generate report
   generateReport(){

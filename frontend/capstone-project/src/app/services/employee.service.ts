@@ -10,6 +10,9 @@ import { Admin } from '../model/admin';
 export class EmployeeService {
   constructor(public http: HttpClient) { }
 
+  ROOT = "http://localhost:9090/api/employee";
+
+
   empSignInAccount(employee: Employee): Observable<any> {
     return this.http.post("http://localhost:9090/api/employee/loginEmployee", employee, { responseType: 'text' });
   }
@@ -18,5 +21,13 @@ export class EmployeeService {
   }
   admSignInAccount(admin: Admin): Observable<any> {
     return this.http.post("http://localhost:9090/api/admin/admSignIn", admin, { responseType: 'text' });
+  }
+
+  addEmployee(emp:Employee): Observable<any>{
+    return this.http.post(this.ROOT+"/addEmployee", emp, { responseType: 'json' });
+  }
+
+  deleteEmployee(emp:Employee): Observable<any>{
+    return this.http.delete(this.ROOT+"/deleteEmployee/"+emp.emailid);
   }
 }
