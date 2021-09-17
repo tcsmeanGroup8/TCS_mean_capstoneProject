@@ -14,11 +14,8 @@
 
 }
 
-li, a , button{
+li, a, button{
     font-family: 'Times New Roman', Times, serif;
-    
-    
-    color: blue;
     font-size: larger;   
     text-decoration: none;
 }
@@ -58,4 +55,7 @@ header {
     justify-content: space-between;
 
 }
+
+  
+
 
