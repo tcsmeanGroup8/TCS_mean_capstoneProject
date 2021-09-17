@@ -21,8 +21,11 @@
             </tbody>
         </table>
         <br/>
-        {{msg}}
-        <br/>
-        <p>No refunds allowed. Sorry for the inconvenience but if you have a problem, please raise a ticket!</p>
+        
     </div>
+    <div *ngIf="allowDisplay == false" style="margin-top: 33%; margin-left: 33%; font-size: 30px;">
+        <p>You have no orders with us yet.</p>
+    </div>
+    <br/>
+    <p style="font-size: 10px; margin-left: 33%;">No refunds allowed. Sorry for the inconvenience but if you have a problem, please raise a ticket!</p>
 </div>

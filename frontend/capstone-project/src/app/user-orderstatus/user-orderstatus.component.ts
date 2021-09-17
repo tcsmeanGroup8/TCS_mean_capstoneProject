@@ -15,29 +15,33 @@ export class UserOrderstatusComponent implements OnInit {
     this.getOrderStatus();
   }
 
-  msg = "";
   allOrders = new Array();
   allowDisplay = false;
 
   getOrderStatus() {
     let user =  { email: this.home.userID, password: "temp"};
     this.userSer.getOrder(user).subscribe(result=> {
-      if (result && result != "0") {
-        this.allOrders = JSON.parse(result);
-        console.log(this.allOrders);
-        let tempOrder = [];
-        for (let i = 0; i < this.allOrders.length; ++i) {
-          for (let j = 0; j < this.allOrders[i].cart.length; ++j) {
-            tempOrder.push([this.allOrders[i].cart[j].name, this.allOrders[i].cart[j].price]);
+      this.allowDisplay = false;
+      if (result && result.length != 0) {
+        try {
+          this.allOrders = JSON.parse(result);
+          console.log(this.allOrders);
+          let tempOrder = [];
+          for (let i = 0; i < this.allOrders.length; ++i) {
+            for (let j = 0; j < this.allOrders[i].cart.length; ++j) {
+              tempOrder.push([this.allOrders[i].cart[j].name, this.allOrders[i].cart[j].price]);
+            }
+            this.allOrders[i].cart = tempOrder;
+            console.log(tempOrder);
+            tempOrder = [];
+            this.allowDisplay = true;
           }
-          this.allOrders[i].cart = tempOrder;
-          console.log(tempOrder);
-          tempOrder = [];
+          
         }
-        this.allowDisplay = true;
+        catch {}
       }
       else {
-        this.msg = "No orders yet. Please buy something from us!"
+        this.allowDisplay = false;
       }
     }, error=>console.log(error));
     
