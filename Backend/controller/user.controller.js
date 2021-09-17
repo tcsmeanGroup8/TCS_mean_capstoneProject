@@ -1,5 +1,6 @@
 let userModel = require("../model/user.model");
 let fundsModel = require("../model/funds.model");
+let statusModel = require("../model/status.model");
 
 let signUp = async (request,response)=> {
     let user = request.body;    // receive the data from post method
@@ -48,6 +49,14 @@ let editUser = async (request,response)=> {
     let temp2 = fundsModel.updateOne({email: userID},{$set: {email:newEmail}},(err,result)=> {
         if(!err){
             console.log("Successfully updated user funds account");
+        }
+        else {
+            console.log(err);
+        }
+    })
+    let temp3 = statusModel.updateMany({email: userID},{$set: {email:newEmail}},(err,result)=> {
+        if(!err){
+            console.log("Successfully updated user orders");
             response.send("1");
         }
         else {

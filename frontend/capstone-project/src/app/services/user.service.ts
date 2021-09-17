@@ -59,4 +59,8 @@ export class UserService {
     return this.http.post(this.status_port + "/createStatus", user, { responseType: 'text' });
   }
 
+  getOrder(user: User): Observable<any> {
+    return this.http.post(this.status_port + "/fetchStatus", user, { responseType: 'text' });
+  }
+
 }

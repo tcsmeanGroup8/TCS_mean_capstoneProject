@@ -6,7 +6,7 @@ let statusSchema = mongoose.Schema({
     email:String,
     status:String,
     total:Number,
-    date:Date,
+    date:String,
     cart:Array
 });
 

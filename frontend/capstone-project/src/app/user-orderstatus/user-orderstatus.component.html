@@ -1,1 +1,31 @@
-<p>user-orderstatus works!</p>
+<div class="container">
+    <div *ngIf="allowDisplay" style="text-align: center;">
+        <table class="styled-table">
+            <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Date</th>
+                <th>Cart</th>
+                <th>Status</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let o of allOrders">
+                <td>{{o._id}}</td>
+                <td>{{o.date}}</td>
+                <td>{{o.cart | json}}</td>
+                <td>{{o.status}}</td>
+                <td>${{o.total}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <br/>
+        
+    </div>
+    <div *ngIf="allowDisplay == false" style="margin-top: 33%; margin-left: 33%; font-size: 30px;">
+        <p>You have no orders with us yet.</p>
+    </div>
+    <br/>
+    <p style="font-size: 10px; margin-left: 33%;">No refunds allowed. Sorry for the inconvenience but if you have a problem, please raise a ticket!</p>
+</div>

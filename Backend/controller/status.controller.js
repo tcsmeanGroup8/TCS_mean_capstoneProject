@@ -1,13 +1,19 @@
 let statusModel = require("../model/status.model");
 
 let fetchStatus = (request,response)=>{
-    let orderID = "1"; //TODO get order id here
-    statusModel.find({_id: orderID},(err,data)=>{
+    let user = request.body.email;
+    statusModel.find({email: user},(err,data)=>{
         if(!err){
-            response.send(data);
+            if (data != undefined) {
+                response.send(data);
+            }
+            else {
+                response.send("0");
+            }
         }
         else{
             console.log(err);
+            response.send("0");
         }
     })
 }
@@ -20,7 +26,7 @@ let createStatus = (request,response)=> {
     }
     let today = new Date().toISOString().slice(0, 10);
     let status = "Order Submitted";
-    let newStatus = JSON.parse("{\"email\":\"" + order.email + "\", \"status\":\"" + status + "\", \"total\":" + String(cartTotal) + ", \"Date\":\"" + String(today) + "\", \"cart\":[" + JSON.stringify(order.cart) + "]}");
+    let newStatus = JSON.parse("{\"email\":\"" + order.email + "\", \"status\":\"" + status + "\", \"total\":" + String(cartTotal) + ", \"date\":\"" + String(today) + "\", \"cart\":" + JSON.stringify(order.cart) + "}");
     statusModel.insertMany(newStatus,(err,result)=> {
         if(!err){
             console.log("New order status has been created for " + order.email);
@@ -34,7 +40,8 @@ let createStatus = (request,response)=> {
 }
 
 let deleteStatus = (request,response)=> {
-    let orderID = 1; //TODO get user id here
+    let user = request.body;
+    let orderID = user.userID;
     statusModel.deleteOne({_id:orderID},(err,result)=> {
         if(!err){
             console.log("Successfully deleted order status for " + orderID);
@@ -43,24 +50,27 @@ let deleteStatus = (request,response)=> {
             console.log(err);
         }
     })
-    response.redirect("/orderStatus"); //TODO change redirect to home page (after creation)
 }
 
 let updateStatus = (request,response)=> {
-    let orderID = 1; //TODO get user id here
-    let newCS = (request.body.cs == "") ? undefined : request.body.cs;  //if field is empty(equals "") then replace with undefined so it doesn't overwrite old data.
-    let newCC = (request.body.cc == "") ? undefined : request.body.cc;
-    let newDS = (request.body.ds == "") ? undefined : request.body.ds;
-    let newDC = (request.body.dc == "") ? undefined : request.body.dc;
-    statusModel.updateOne({_id: orderID},{$set: {current_State: newCS, current_Country: newCC, destination_State: newDS, destination_Country: newDC}},(err,result)=> {
+    let status = request.body;
+    let userID = status.userID;
+    console.log(status);
+    for (let s in status) {
+        if (!status[s]) {
+            delete status[s];
+        }
+    }
+    statusModel.updateMany({email: userID},{$set: {status}},(err,result)=> {
         if(!err){
-            console.log("Successfully updated order status " + String(orderID) + " to Current = [" + newCS + ", " + newCC + "], Destination = [" + newDS + ", " + newDC + "]");
+            console.log("Successfully updated order statuses for " + userID);
+            response.send("1");
         }
         else {
             console.log(err);
+            response.send("0");
         }
     })
-    response.redirect("/orderStatus"); //TODO change redirect to home page (after creation)
 }
 
 module.exports = {fetchStatus, createStatus, deleteStatus, updateStatus, createStatus}
