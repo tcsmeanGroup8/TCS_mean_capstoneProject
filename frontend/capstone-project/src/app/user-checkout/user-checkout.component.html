@@ -2,14 +2,14 @@
     <h2 style="font-size: 40px;">Checkout Page</h2>
     <div class="container">
         <div class="row">
-            <div style="text-align: center; font-size: xx-large;" >
+            <div style="text-align: left; color: green; font-size: xx-large;" >
                 <label>Your funds: ${{totalFunds}}</label>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <div style="text-align: center; color: green; font-size: xx-large;" >
+            <div style="text-align:left; color: blue; font-size:xx-large ;">
                 <label>Cart Size:</label><label id="size" style= " text-align: center; font-size:larger; color: crimson; ">0</label>
             </div>
         </div>
@@ -18,15 +18,23 @@
 
 <div class="container" id="items_container" >
     <div *ngIf="allowDisplay" style="text-align: center;">
-        <table border="1" style="margin: auto;">
+        <table border="1" class="table table-striped" style="margin: auto;">
+            <thead>
             <tr>
-                <th>Item</th>
-                <th>Price</th>
+                <th scope="col">Item</th>
+                <th scope="col">Price</th>
+                <!-- <th scope="col">Action</th> -->
             </tr>
+            </thead>
+            <tbody>
             <tr *ngFor="let c of userCart">
                 <td>{{c.name}}</td>
                 <td>{{c.price}}</td>
+                <!-- <td>
+
+                </td> -->
             </tr>
+            </tbody>
         </table>
         <br/>
         <h2>Your total is: ${{totalPrice}}</h2>
